@@ -2,6 +2,7 @@
 
 namespace Redemption
 {
+	// Found at https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
 	std::vector<std::string> split(std::string string, char delimiter) {
 		std::vector<std::string> result;
 		std::stringstream ss(string);
