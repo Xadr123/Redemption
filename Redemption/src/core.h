@@ -150,14 +150,7 @@ namespace Redemption
 		"a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"
 	};
 
-	constexpr char PieceCharacters[MaxPiece] =
-	{
-		'.', 
-		'P', 'N', 'B', 'R', 'Q', 'K', 
-		'.', '.', 
-		'p', 'n', 'b', 'r', 'q', 'k', 
-		'.'
-	};
+	constexpr std::string_view StartingFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
 	constexpr bool isValidSquare(Square square)
 	{
@@ -212,6 +205,47 @@ namespace Redemption
 		else
 		{
 			return static_cast<Piece>(pieceType + 8);
+		}
+	}
+
+	constexpr Piece pieceFromCharacter(char character)
+	{
+		switch (character)
+		{
+		case 'P': return WhitePawn;
+		case 'N': return WhiteKnight;
+		case 'B': return WhiteBishop;
+		case 'R': return WhiteRook;
+		case 'Q': return WhiteQueen;
+		case 'K': return WhiteKing;
+		case 'p': return BlackPawn;
+		case 'n': return BlackKnight;
+		case 'b': return BlackBishop;
+		case 'r': return BlackRook;
+		case 'q': return BlackQueen;
+		case 'k': return BlackKing;
+		default: return NoPiece;
+		}
+	}
+
+	constexpr char pieceToCharacter(Piece piece)
+	{
+		switch (piece)
+		{
+		case NoPiece: return '.';
+		case WhitePawn: return 'P';
+		case WhiteKnight: return 'N';
+		case WhiteBishop: return 'B';
+		case WhiteRook: return 'R';
+		case WhiteQueen: return 'Q';
+		case WhiteKing: return 'K';
+		case BlackPawn: return 'p';
+		case BlackKnight: return 'n';
+		case BlackBishop: return 'b';
+		case BlackRook: return 'r';
+		case BlackQueen: return 'q';
+		case BlackKing: return 'k';
+		default: return '.';
 		}
 	}
 }

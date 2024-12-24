@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core.h"
+#include "bitboards.h"
 
 namespace Redemption
 {
@@ -25,5 +26,8 @@ namespace Redemption
 		~Board() = default;
 
 		BoardState state;
+
+		void parseFen(std::string_view fen);
+		void printBoard();
 	};
 }

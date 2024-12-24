@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "core.h"
+#include "board.h"
+#include "bitboards.h"
 
 using namespace Redemption;
 
@@ -8,14 +10,10 @@ int main()
 {
 	std::cout << "Redemption Started." << std::endl;
 
-	for (Rank rank = Rank1; rank < MaxRank; ++rank)
-	{
-		for (File file = FileA; file < MaxFile; ++file)
-		{
-			Square square = fileRankToSquare(file, rank);
-			std::cout << "Square " << SquareNames[square] << '\n';
-		}
-	}
+	Board board = Board();
+
+	board.parseFen(StartingFEN);
+	board.printBoard();
 
 	std::cin.get();
 
