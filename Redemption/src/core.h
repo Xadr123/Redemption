@@ -29,7 +29,8 @@ namespace Redemption
 	{
 		White = 0,
 		Black,
-		None = 2
+		None = 2,
+		MaxColor = 2
 	};
 
 	enum PieceType : i16
@@ -202,7 +203,7 @@ namespace Redemption
 	constexpr Piece makePiece(PieceType pieceType, Color color)
 	{
 		assert(pieceType < MaxPieceType);
-		assert(color < None);
+		assert(color < MaxColor);
 
 		if (color == White)
 		{
