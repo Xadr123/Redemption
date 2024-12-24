@@ -4,6 +4,8 @@
 #include <cassert>
 #include <string>
 #include <string_view>
+#include <vector>
+#include <sstream>
 
 namespace Redemption 
 {
@@ -150,7 +152,7 @@ namespace Redemption
 		"a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"
 	};
 
-	constexpr std::string_view StartingFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+	const std::string StartingFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
 	constexpr bool isValidSquare(Square square)
 	{
@@ -248,4 +250,6 @@ namespace Redemption
 		default: return '.';
 		}
 	}
+
+	std::vector<std::string> split(std::string string, char delimiter);
 }

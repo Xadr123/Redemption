@@ -5,6 +5,14 @@
 
 namespace Redemption
 {
+	enum CastlingPermissions : i16
+	{
+		WhiteKingSideCastling = 1,
+		WhiteQueenSideCastling = 2,
+		BlackKingSideCastling = 4,
+		BlackQueenSideCastling = 8
+	};
+
 	struct BoardState
 	{
 		Bitboard pieceBitboards[MaxPieceType]{};
@@ -12,11 +20,11 @@ namespace Redemption
 		Piece pieces[MaxSquare]{};
 
 		Color sideToMove{};
-		u64 castlingRights{};
+		i16 castlingRights{};
 		Square enPassantSquare{};
-		i16 HalfMoveClock{};
-		i16 FullMoveCount{};
-		i16 FiftyMoveCounter{};
+		i16 halfMoveClock{};
+		i16 fullMoveCount{};
+		i16 fiftyMoveCounter{};
 	};
 
 	class Board
@@ -27,7 +35,7 @@ namespace Redemption
 
 		BoardState state;
 
-		void parseFen(std::string_view fen);
+		void parseFen(std::string fen);
 		void printBoard();
 	};
 }
